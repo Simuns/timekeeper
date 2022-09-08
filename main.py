@@ -3,9 +3,9 @@ import datetime
 from operator import truediv
 import json
 
-input_task = "Solve all worlds problems"
-input_start = '12:00'
-input_stop = '14:30'
+input_task = "CASE: More important than last case"
+input_start = '9:00'
+input_stop = '12:00'
 
 f = open('data.json')
 try:
@@ -31,7 +31,6 @@ def get_stringTimeSpan(diff):
     string_timeSpan = (f"{hours}:{minutes}")
     return string_timeSpan, hours, minutes, seconds
 
-timestamps = get_timeStamps(input_start, input_stop)
 
 def new_task(tasks, input_task):
     print(len(tasks))
@@ -67,14 +66,29 @@ def new_taskEntry(tasks, input_task, input_start, input_stop):
 
     return tasks
 
-""" TODO
 def remove_task(tasks, input_task):
+    try:
+        tasks.pop(input_task, "not_found")
+    except:
+        print(input_task," was not found")
+    return tasks
+
 def remove_taskEntry(tasks, input_task, tasknumber):
+    try:
+        del tasks[input_task]['time_spent'][tasknumber]
+    except:
+        print(f"tasknumber {tasknumber} does not excist for task ({input_task})")
+        return tasks
+
+
+""" TODO
 def change_taskEntry(tasks, input_task, tasknumber, input_start, input_stop):
-
 """
+tasknumber = "3"
 
-tasks = new_taskEntry(tasks, input_task, input_start, input_stop)
+#tasks = remove_task(tasks, input_task)
+#tasks = new_taskEntry(tasks, input_task, input_start, input_stop)
+tasks = remove_taskEntry(tasks, input_task, tasknumber)
 #tasks = new_task(tasks, input_task)
 
 
