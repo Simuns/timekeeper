@@ -3,9 +3,9 @@ import datetime
 from operator import truediv
 import json
 
-input_task = "CASE: More important than last case"
-input_start = '13:00'
-input_stop = '15:00'
+input_task = "Solve all worlds problems"
+input_start = '12:00'
+input_stop = '14:30'
 
 f = open('data.json')
 try:
@@ -67,7 +67,16 @@ def new_taskEntry(tasks, input_task, input_start, input_stop):
 
     return tasks
 
+""" TODO
+def remove_task(tasks, input_task):
+def remove_taskEntry(tasks, input_task, tasknumber):
+def change_taskEntry(tasks, input_task, tasknumber, input_start, input_stop):
+
+"""
+
 tasks = new_taskEntry(tasks, input_task, input_start, input_stop)
+#tasks = new_task(tasks, input_task)
+
 
 #tasks = {}
 #tasks[input_task] = {}
