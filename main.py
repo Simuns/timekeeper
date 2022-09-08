@@ -34,10 +34,12 @@ def get_stringTimeSpan(diff):
 timestamps = get_timeStamps(input_start, input_stop)
 
 def new_task(tasks, input_task):
+    print(len(tasks))
     if len(tasks) == 0:
         tasks = {}
         tasks[input_task] = {}
         tasks[input_task]["time_spent"] = {}
+        print(tasks)
     else: 
         if input_task in tasks.keys():
             print("task already exsists")
@@ -49,10 +51,12 @@ def new_task(tasks, input_task):
 
 def new_taskEntry(tasks, input_task, input_start, input_stop):
     if input_task in tasks.keys():
+        print("input_task was in tasks.keys")
         pass
     else:
-        print("task does not exsist, Creating task entry")
-        new_task(tasks, input_task)
+        print("Task does not exsist, Creating task entry")
+        tasks = new_task(tasks, input_task)
+    
 
     timestamps = get_timeStamps(input_start, input_stop)
     print(len(tasks))
@@ -63,7 +67,7 @@ def new_taskEntry(tasks, input_task, input_start, input_stop):
 
     return tasks
 
-new_taskEntry(tasks, input_task, input_start, input_stop)
+tasks = new_taskEntry(tasks, input_task, input_start, input_stop)
 
 #tasks = {}
 #tasks[input_task] = {}
